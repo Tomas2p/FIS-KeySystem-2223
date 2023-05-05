@@ -1,0 +1,23 @@
+###   Menu General   ###
+
+[1] - Añadir llave al sistema
+[2] - Mostrar llaves
+[3] - Seleccionar llave
+
+[4] - Añadir usuario al sistema
+[5] - Mostrar usuarios
+
+[6] - Salir
+
+>>> 
+###   Menu Cerradura   ###
+
+[1] - Abrir
+[2] - Cerrar
+
+[3] - Añadir Usuarios
+[4] - Mostrar Usuarios
+
+[5] - Salir
+
+>>> 
