@@ -19,6 +19,7 @@ class Key {
   // Getters y Setters
   unsigned getId() const { return id_; }
   bool getState() const { return state_; }
+  std::string getPassword() const { return password_; }
   void setPassword(const std::string& password) { password_ = password; };
 
   // Abre la cerradura

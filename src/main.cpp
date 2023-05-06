@@ -5,12 +5,9 @@
 
 int main(int argc, char* argv[]) {
   // Inicializa variables
-  KeySystem system_a;
-  // Menu General
-  GeneralMenu();
-
-  // Menu Cerradura
-  // KeyMenu();
+  KeySystem system;
+  // Muestra el menu login
+  optionsMenu(system,0);
 
   return 0;
 }

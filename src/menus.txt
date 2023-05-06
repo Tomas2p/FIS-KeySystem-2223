@@ -1,4 +1,12 @@
-###   Menu General   ###
+###   Login KeySystem   ###
+
+[1] - Iniciar sesión
+[2] - Registrarse
+
+[3] - Salir
+
+>>> 
+###   Menu General Administrador   ###
 
 [1] - Añadir llave al sistema
 [2] - Mostrar llaves
@@ -10,7 +18,7 @@
 [6] - Salir
 
 >>> 
-###   Menu Cerradura   ###
+###   Menu Cerradura Administrador   ###
 
 [1] - Abrir
 [2] - Cerrar
@@ -19,5 +27,13 @@
 [4] - Mostrar Usuarios
 
 [5] - Salir
+
+>>> 
+###   Menu Usuario   ###
+
+[1] - Abrir
+[2] - Cerrar
+
+[3] - Salir
 
 >>> 

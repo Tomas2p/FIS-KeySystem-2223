@@ -21,15 +21,28 @@ class KeySystem {
               const User& user);
   // Eliminar cerradura
   void delKey(const Key& key);
-  
-  // Abrir cerradura
-  void openKey(const Key& key, const User& user);
-  // Cerrar cerradura
-  void closeKey(const Key& key,const User& user);
 
+  // Añadir usuario a cerradura
+  void addUserToKey(Key& key, const User& user);
+
+  // Abrir cerradura
+  void openKey(Key& key, const User& user);
+  // Cerrar cerradura
+  void closeKey(Key& key, const User& user);
+
+  // Muestra las cerraduras
+  void showKeys();
+  // Muestra los usuarios
+  void showUsers();
+
+  /*
   void setEncryptedCard(std::vector<int>& encrypted_card);
   void notify();
   void setTemporalAccess(const User& user, int minutes);
+   */
+
+  // Getters y setters
+  std::vector<User> getUsers() const { return users_; }
 
  private:
   // Cerraduras
