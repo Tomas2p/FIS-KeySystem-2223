@@ -30,9 +30,11 @@
 >>> 
 ###   Menu Usuario   ###
 
-[1] - Abrir
-[2] - Cerrar
+[1] - Seleccionar Cerradura
 
-[3] - Salir
+[2] - Abrir
+[3] - Cerrar
+
+[4] - Salir
 
 >>> 

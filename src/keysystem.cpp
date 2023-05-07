@@ -9,17 +9,19 @@ void KeySystem::notify() {
 */
 
 // Añade un usuario al sistema
-void KeySystem::addUser(const User& new_user) {
+void KeySystem::addUser(User& user) {
+  user.setId(id_users_++);
   this->users_.reserve(1);
-  this->users_.emplace_back(new_user);
+  this->users_.emplace_back(user);
+  user_map_[user.getId()] = users_.size() - 1;
 }
 
 // Añade una llave al sistema
-void KeySystem::addKey(const unsigned& id, const std::string& password,
-                       const User& user) {
-  Key new_key(id, password, user);
+void KeySystem::addKey(Key& key) {
+  key.setId(id_keys_++);
   this->keys_.reserve(1);
-  this->keys_.emplace_back(new_key);
+  this->keys_.emplace_back(key);
+  key_map_[key.getId()] = keys_.size() - 1;
 }
 
 // Eliminar usuario
@@ -52,13 +54,29 @@ void KeySystem::closeKey(Key& key, const User& user) { key.close(user); }
 
 // Muestra las cerraduras
 void KeySystem::showKeys() {
-  std::cout << "\t###   Llaves   ###\n";
+  std::cout << "###   Llaves   ###\n\n";
   if (keys_.empty()) std::cout << "No hay llaves aún.\n";
   for (auto key : keys_) {
     std::cout << "ID/Contraseña/Estado: " << key.getId() << '/';
     for (int i{0}; i < key.getPassword().length(); ++i) std::cout << '*';
     std::cout << '/' << (key.getState() ? "Abierta" : "Cerrada");
     std::cout << '\n';
+  }
+}
+
+// Muestra las cerraduras a las que puede aceder un usuario
+void KeySystem::showKeysUser(const unsigned& id_user) {
+  std::cout << "###   Llaves con accesso   ###\n\n";
+  if (keys_.empty()) std::cout << "No hay llaves aún.\n";
+  for (auto key : keys_) {
+    for (auto access : key.getUsers()) {
+      if (access.second == 1) {
+        std::cout << "ID/Contraseña/Estado: " << key.getId() << '/';
+        for (int i{0}; i < key.getPassword().length(); ++i) std::cout << '*';
+        std::cout << '/' << (key.getState() ? "Abierta" : "Cerrada");
+        std::cout << '\n';
+      }
+    }
   }
 }
 
@@ -69,4 +87,14 @@ void KeySystem::showUsers() {
   for (auto usuario : users_)
     std::cout << "Nombre/ID: " << usuario.getName() << '/' << usuario.getId()
               << '\n';
+}
+
+// Devuelve la pos en vector a la id buscada en mapa
+int KeySystem::findVectorById(unsigned id,
+                              std::unordered_map<unsigned, unsigned> map) {
+  if (map.count(id) > 0) {
+    return map[id];
+  }
+  // No se encuentra
+  return -1;
 }

@@ -25,7 +25,7 @@ inline void readGeneralAdminMenu() { read(8, 19); }
 // Usa Read para leer el menu de administrador cerradura
 inline void readKeyAdminMenu() { read(19, 30); }
 // Usa Read para leer el menu de usuario
-inline void readUserMenu() { read(30, 38); }
+inline void readUserMenu() { read(30, 40); }
 
 // Opciones menu login
 void loginMenu(KeySystem& system, const unsigned& option);
@@ -41,4 +41,4 @@ void whichMenu(const unsigned& menu, const bool& logic, KeySystem& system,
                const unsigned& option);
 
 // Opciones menu (0=loginMenu; 1=generalAdminMenu; 2=keyAdminMenu; 3=userMenu)
-void optionsMenu(KeySystem& system, const unsigned& menu);
+void optionsMenu(KeySystem& system, const unsigned& menu, const unsigned& id_user);

@@ -9,18 +9,21 @@
 
 class Key {
  public:
+  Key() : id_(0) {}
   // Constructor
-  Key(const unsigned& id, const std::string& password, const User& user)
-      : id_(id), state_(0), password_(password) {
+  Key(const std::string& password, const User& user)
+      : id_(0), state_(0), password_(password) {
     // Añade a users_ el id del usuario que lo creo con acceso (1)
     users_[user.getId()] = 1;
   }
 
   // Getters y Setters
   unsigned getId() const { return id_; }
+  void setId(const unsigned& id) { id_ = id; }
   bool getState() const { return state_; }
   std::string getPassword() const { return password_; }
   void setPassword(const std::string& password) { password_ = password; };
+  std::map<unsigned, bool> getUsers() const { return users_; }
 
   // Abre la cerradura
   void open(const User& user);
