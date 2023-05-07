@@ -5,6 +5,13 @@
 
 #include "keysystem.hpp"
 
+// Directivas para la función Pausar() que depende del SO.
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 // Limpia la pantalla
 inline void clear() { system("clear"); }
 
@@ -14,11 +21,11 @@ void read(const int& start, const int& end);
 // Usa Read para leer el menu de login
 inline void readLoginMenu() { read(0, 8); }
 // Usa Read para leer el menu de administrador general
-inline void readGeneralAdminMenu() { read(9, 20); }
+inline void readGeneralAdminMenu() { read(8, 19); }
 // Usa Read para leer el menu de administrador cerradura
-inline void readKeyAdminMenu() { read(21, 31); }
+inline void readKeyAdminMenu() { read(19, 30); }
 // Usa Read para leer el menu de usuario
-inline void readUserMenu() { read(32, 39); }
+inline void readUserMenu() { read(30, 38); }
 
 // Opciones menu login
 void loginMenu(KeySystem& system, const unsigned& option);

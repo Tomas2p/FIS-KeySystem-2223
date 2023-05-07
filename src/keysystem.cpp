@@ -9,9 +9,7 @@ void KeySystem::notify() {
 */
 
 // Añade un usuario al sistema
-void KeySystem::addUser(const std::string& name, const unsigned& id,
-                        const unsigned& access_level) {
-  User new_user(name, id, access_level);
+void KeySystem::addUser(const User& new_user) {
   this->users_.reserve(1);
   this->users_.emplace_back(new_user);
 }

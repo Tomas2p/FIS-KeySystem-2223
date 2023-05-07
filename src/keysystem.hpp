@@ -11,8 +11,7 @@
 class KeySystem {
  public:
   // Añadir usuario
-  void addUser(const std::string& name, const unsigned& id,
-               const unsigned& access_level);
+  void addUser(const User& new_user);
   // Eliminar usuario
   void delUser(const User& user);
 

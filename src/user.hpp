@@ -10,6 +10,13 @@ class User {
   // Constructor usuario normal
   User(const std::string& name, const std::string& password)
       : name_(name), password_(password), id_(count_id_users++) {}
+  // Constructor usuario normal
+  User(const std::string& name, const std::string& password,
+       const bool& access_level)
+      : name_(name),
+        password_(password),
+        access_level_(access_level),
+        id_(count_id_users++) {}
 
   // Getters y Setters
   std::string getName() const { return name_; }
@@ -17,9 +24,12 @@ class User {
   std::string getPassword() const { return password_; }
   void setPassword(const std::string& password) { password_ = password; }
   unsigned getId() const { return id_; }
-  unsigned getAccessLevel() const { return access_level_; }
+  bool getAccessLevel() const { return access_level_; }
+  void setAccessLevel(const bool& access_level) {
+    access_level_ = access_level;
+  }
 
-  static unsigned count_id_users;
+  unsigned count_id_users;
 
  private:
   // Nombre del usuario
@@ -29,5 +39,5 @@ class User {
   // ID del usuario
   unsigned id_;
   // Nivel de acceso del usuario (0=normal; 1=administrador)
-  unsigned access_level_;
+  bool access_level_;
 };

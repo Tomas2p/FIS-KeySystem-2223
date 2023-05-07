@@ -12,10 +12,9 @@
 [2] - Mostrar llaves
 [3] - Seleccionar llave
 
-[4] - Añadir usuario al sistema
-[5] - Mostrar usuarios
+[4] - Mostrar usuarios
 
-[6] - Salir
+[5] - Salir
 
 >>> 
 ###   Menu Cerradura Administrador   ###
